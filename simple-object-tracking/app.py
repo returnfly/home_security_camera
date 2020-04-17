@@ -4,6 +4,16 @@ from flask import Flask, render_template, Response
 # emulated camera
 from camera import Camera
 
+from object_tracker import Track
+
+from pyimagesearch.centroidtracker import CentroidTracker
+from imutils.video import VideoStream
+import numpy as np
+import imutils
+import time
+import cv2
+from dingding import Send_Message
+
 # Raspberry Pi camera module (requires picamera package)
 # from camera_pi import Camera
 
@@ -18,8 +28,11 @@ def index():
 
 def gen(camera):
     """Video streaming generator function."""
+    track = Track()
     while True:
-        frame = camera.get_frame()
+        frame = track.get_frame()
+        ret, jpeg = cv2.imencode('.jpg', frame)
+        frame = jpeg.tobytes()
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
