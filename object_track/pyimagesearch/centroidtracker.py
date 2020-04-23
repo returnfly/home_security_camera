@@ -2,7 +2,7 @@
 from scipy.spatial import distance as dist
 from collections import OrderedDict
 import numpy as np
-from dingding import Send_Message
+from pyimagesearch.dingding import Send_Message
 
 class CentroidTracker():
 	def __init__(self, maxDisappeared=50):

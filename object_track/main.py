@@ -5,14 +5,13 @@ from flask import Flask, render_template, Response
 from camera import Camera
 
 from object_tracker import Track
-
 from pyimagesearch.centroidtracker import CentroidTracker
 from imutils.video import VideoStream
 import numpy as np
 import imutils
 import time
 import cv2
-from dingding import Send_Message
+from pyimagesearch.dingding import Send_Message
 
 # Raspberry Pi camera module (requires picamera package)
 # from camera_pi import Camera

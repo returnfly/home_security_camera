@@ -9,7 +9,7 @@ import argparse
 import imutils
 import time
 import cv2
-from dingding import Send_Message
+from pyimagesearch.dingding import Send_Message
 
 # construct the argument parse and parse the arguments
 # ap = argparse.ArgumentParser()
@@ -50,7 +50,7 @@ class Track() :
 	def get_frame(self) :
 		# read the next frame from the video stream and resize it
 		self.frame = self.vs.read()
-		self.frame = imutils.resize(self.frame, width=400)
+		self.frame = imutils.resize(self.frame, width=600)
 
 		# if the frame dimensions are None, grab them
 		if self.W is None or self.H is None:
@@ -104,6 +104,7 @@ class Track() :
 		# if key == ord("q"):
 		# 	break
 
+# example scene , "q" 退出
 if __name__ == '__main__':
 	track = Track()
 	while True:
