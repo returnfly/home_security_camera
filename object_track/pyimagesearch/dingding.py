@@ -1,26 +1,30 @@
+# 此页需要修改
+
 import requests
 import json
 
-# 消息中应包含 "home"
+# text中填入需要包含的关键字，发送消息中应包含 text,否则发送失败
+# token和api_url填入的皆为钉钉机器人返回的Webhook 地址
 
 class Send_Message:
-    def __init__ (self,text="home") :
+    def __init__ (self,text="xxxx") :
         json_text = {
             "msgtype": "text",
             "at": {"atMobiles": ["11111"],"isAtAll": False},
             "text": {"content": text} }  
 
-        token ="https://oapi.dingtalk.com/robot/send?access_token=7dfa2c07a7a181ef2ab36ad10298c9096dd658636734bd717893156cda0c7bb4"
+        token ="xxxx"
 
         headers = {'Content-Type': 'application/json;charset=utf-8'}
 
-        api_url = "https://oapi.dingtalk.com/robot/send?access_token=7dfa2c07a7a181ef2ab36ad10298c9096dd658636734bd717893156cda0c7bb4"
+        api_url = "xxxx"
 
         print(requests.post(api_url, json.dumps(json_text), headers=headers).content)
 
 
+# 此处需要填入想要发送的消息，注意消息中应包含前边设置的关键字
 if __name__ == '__main__':
 
-    s_m = Send_Message("home-safe")
+    s_m = Send_Message("xxxx")
 
 

@@ -1,3 +1,5 @@
+# 此页需要修改，见底部
+
 #!/usr/bin/env python
 from flask import Flask, render_template, Response
 
@@ -42,6 +44,6 @@ def video_feed():
     return Response(gen(Camera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
-
+# 此处填入设备的ip地址
 if __name__ == '__main__':
-    app.run(host='192.168.0.102', debug=True, threaded=True)
+    app.run(host='xxxx', debug=True, threaded=True)
